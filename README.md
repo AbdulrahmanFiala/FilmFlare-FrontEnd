@@ -34,7 +34,6 @@ FilmFlare is a full-stack web application designed to be your ultimate movie hub
    ```bash
    npm start
 
-
 ## Usage
 Once the application is running, you can access it in your web browser at:
 [http://localhost:3000](http://localhost:3000)
