@@ -1,18 +1,21 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import api from "../../api/axiosConfig";
 import { useParams } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import ReviewForm from "../reviewForm/ReviewForm";
 
 import React from "react";
+import { SpinnerLoading } from "../SpinnerLoading";
 
 const Reviews = ({ getMovieData, movie, reviews, setReviews }) => {
+  const [isLoading, setIsLoading] = useState(true);
   const revText = useRef();
   let params = useParams();
   const movieId = params.movieId;
 
   useEffect(() => {
     getMovieData(movieId);
+    setIsLoading(false);
   }, []);
 
   const addReview = async (e) => {
@@ -35,6 +38,10 @@ const Reviews = ({ getMovieData, movie, reviews, setReviews }) => {
       console.error(err);
     }
   };
+
+  if (isLoading) {
+    return <SpinnerLoading />;
+  }
 
   return (
     <Container className="mt-4">
