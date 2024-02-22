@@ -37,7 +37,7 @@ const Reviews = ({ getMovieData, movie, reviews, setReviews }) => {
   };
 
   return (
-    <Container>
+    <Container className="mt-4">
       <Row>
         <Col>
           <h3>Reviews</h3>
